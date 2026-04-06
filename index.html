@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevFlow — Privacy Policy</title>
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 1rem; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .meta {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .meta strong { color: var(--text); }
+        main {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem 2rem 2.5rem;
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--primary-dark);
+        }
+        h2:first-child { margin-top: 0; }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+        p { margin-bottom: 1rem; }
+        ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+        }
+        li { margin-bottom: 0.5rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        th {
+            background: var(--bg);
+            font-weight: 600;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight {
+            background: #f0fdfa;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 600px) {
+            header { padding: 2rem 1rem; }
+            header h1 { font-size: 1.5rem; }
+            .container { padding: 1.5rem 1rem 3rem; }
+            main { padding: 1.5rem 1.25rem 2rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.5rem 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DevFlow</h1>
+    <p>Privacy Policy</p>
+</header>
+
+<div class="container">
+    <div class="meta">
+        <strong>Last updated:</strong> April 6, 2026<br>
+        <strong>App:</strong> DevFlow (com.devflow.client)<br>
+        <strong>Developer:</strong> DevFlow Team
+    </div>
+
+    <main>
+        <h2>1. Introduction</h2>
+        <p>
+            DevFlow ("we," "our," or "the app") is a mobile client for Azure DevOps that helps
+            developers and teams manage work items, pull requests, pipelines, sprints, test cases,
+            and repositories on the go.
+        </p>
+        <p>
+            This Privacy Policy explains what information we collect, how we use it, how it is
+            stored, and your rights regarding your data. We take your privacy seriously and are
+            committed to protecting your personal information.
+        </p>
+        <p>
+            By using DevFlow, you agree to the practices described in this policy. If you do not
+            agree, please do not use the app.
+        </p>
+
+        <h2>2. Information We Collect</h2>
+        <p>
+            DevFlow operates as a <strong>client application</strong> that connects directly to
+            your Azure DevOps organization. We do not operate our own servers to store your data.
+            All work item, pipeline, repository, and project data is fetched from and sent to
+            Microsoft Azure DevOps servers over HTTPS.
+        </p>
+
+        <h3>2.1 Information You Provide</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Purpose</th>
+                    <th>Storage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Azure DevOps organization name</td>
+                    <td>Connect to your Azure DevOps account</td>
+                    <td>Encrypted on device (EncryptedSharedPreferences)</td>
+                </tr>
+                <tr>
+                    <td>Personal Access Token (PAT) or OAuth 2.0 access/refresh tokens</td>
+                    <td>Authenticate with Azure DevOps APIs</td>
+                    <td>Encrypted on device (EncryptedSharedPreferences)</td>
+                </tr>
+                <tr>
+                    <td>Display name, email, avatar URL</td>
+                    <td>Show your profile within the app</td>
+                    <td>Encrypted on device (EncryptedSharedPreferences)</td>
+                </tr>
+                <tr>
+                    <td>Selected project and team preferences</td>
+                    <td>Scope the app to your project</td>
+                    <td>Encrypted on device (EncryptedSharedPreferences)</td>
+                </tr>
+                <tr>
+                    <td>Theme preference (Light / Dark / System)</td>
+                    <td>Apply your chosen appearance</td>
+                    <td>Encrypted on device (EncryptedSharedPreferences)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 Work Data (Azure DevOps)</h3>
+        <p>
+            When you use DevFlow to view or create work items, test cases, pull requests,
+            pipelines, sprints, and other Azure DevOps entities, that data is:
+        </p>
+        <ul>
+            <li><strong>Retrieved from</strong> and <strong>sent to</strong> Microsoft Azure DevOps servers directly over HTTPS</li>
+            <li><strong>Not stored</strong> on any third-party server operated by DevFlow</li>
+            <li><strong>Temporarily cached</strong> on your device in an encrypted local database (Room) for offline access</li>
+        </ul>
+
+        <h3>2.3 Google Play Billing Information</h3>
+        <p>
+            If you subscribe to DevFlow Premium, purchase information is handled by
+            <strong>Google Play Billing</strong>. We do not process or store payment information.
+            Google Play manages all payment processing and billing details. We only receive a
+            confirmation of your purchase status (active/inactive subscription) through the
+            Google Play Billing Library.
+        </p>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>Your information is used solely for the following purposes:</p>
+        <ul>
+            <li><strong>Authentication:</strong> Connecting to your Azure DevOps organization using your PAT or OAuth tokens</li>
+            <li><strong>App functionality:</strong> Displaying and managing your work items, pipelines, pull requests, sprints, test cases, and repositories</li>
+            <li><strong>Offline support:</strong> Caching data locally so you can work without an internet connection; changes sync automatically when you reconnect</li>
+            <li><strong>Premium subscription:</strong> Determining whether you have an active DevFlow Premium subscription (via Google Play Billing)</li>
+            <li><strong>App integrity:</strong> Verifying that the app has not been tampered with (via Google Play Integrity API)</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>Key point:</strong> DevFlow does <strong>not</strong> sell, share, or transmit
+            your personal data to any third party. Your Azure DevOps credentials and work data
+            never leave your device except when communicating directly with Microsoft Azure DevOps
+            servers.
+        </div>
+
+        <h2>4. Data Storage and Security</h2>
+
+        <h3>4.1 On-Device Storage</h3>
+        <p>
+            All sensitive data stored on your device is encrypted using
+            <strong>EncryptedSharedPreferences</strong> (AES-256 encryption) for credentials and
+            <strong>Room Database</strong> for cached work items and settings. This ensures that
+            even if someone gains physical access to your device, your data remains protected.
+        </p>
+
+        <h3>4.2 Network Security</h3>
+        <p>
+            All communication between DevFlow and Azure DevOps servers uses <strong>HTTPS with
+            TLS encryption</strong>. Additionally, DevFlow implements
+            <strong>certificate pinning</strong> to ensure the app only trusts known Azure DevOps
+            server certificates, preventing man-in-the-middle attacks.
+        </p>
+
+        <h3>4.3 App Integrity Protection</h3>
+        <p>
+            DevFlow uses the <strong>Google Play Integrity API</strong> to verify that the app
+            installed on your device is genuine, unmodified, and was distributed through Google
+            Play. We also perform APK signature verification at runtime to detect repackaged
+            or tampered versions of the app.
+        </p>
+
+        <h2>5. Data Sharing and Third-Party Services</h2>
+        <p>DevFlow interacts with the following third-party services:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Purpose</th>
+                    <th>Data Shared</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Microsoft Azure DevOps</strong><br>(dev.azure.com)</td>
+                    <td>Core app functionality — work items, pipelines, repos, etc.</td>
+                    <td>Your Azure DevOps credentials (PAT/OAuth tokens) and all work data you manage</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Play Billing</strong></td>
+                    <td>Processing Premium subscription payments</td>
+                    <td>Purchase tokens and subscription status only</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Play Integrity API</strong></td>
+                    <td>App integrity attestation (anti-tampering)</td>
+                    <td>Device integrity signals (no personal data)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <strong>We do not use</strong> analytics services, crash reporting services,
+            advertising SDKs, or any other third-party SDKs that collect user data.
+        </p>
+
+        <h2>6. Data Retention</h2>
+        <p>
+            Your data is retained on your device for as long as the app is installed. Cached
+            work items, settings, and credentials are stored locally and are
+            <strong>automatically deleted</strong> when you:
+        </p>
+        <ul>
+            <li>Sign out from the app (Settings &gt; Sign Out)</li>
+            <li>Uninstall the application</li>
+            <li>Clear app data from your device settings</li>
+        </ul>
+        <p>
+            Data stored in your Azure DevOps organization is managed by Microsoft according to
+            their own privacy policy and terms of service.
+        </p>
+
+        <h2>7. Your Rights</h2>
+        <p>You have the following rights regarding your data:</p>
+        <ul>
+            <li><strong>Access:</strong> You can view all stored credentials and settings in the app's Settings screen</li>
+            <li><strong>Delete:</strong> You can delete all locally stored data by signing out (Settings &gt; Sign Out) or uninstalling the app</li>
+            <li><strong>Modify:</strong> You can change your stored preferences (theme, project, organization) at any time in Settings</li>
+            <li><strong>Export:</strong> Your Azure DevOps work data can be exported from your Azure DevOps organization directly (dev.azure.com)</li>
+        </ul>
+
+        <h2>8. Children's Privacy</h2>
+        <p>
+            DevFlow is not directed to individuals under the age of 18. We do not knowingly
+            collect personal information from children. If you believe we have inadvertently
+            collected personal data from a child, please contact us and we will take steps to
+            delete such information.
+        </p>
+
+        <h2>9. Changes to This Privacy Policy</h2>
+        <p>
+            We may update this Privacy Policy from time to time to reflect changes in our
+            practices, technology, legal requirements, or other factors. When we do, we will
+            update the "Last updated" date at the top of this policy. We encourage you to
+            review this policy periodically.
+        </p>
+        <p>
+            For material changes, we will notify users through the app or by other appropriate
+            means before the changes take effect.
+        </p>
+
+        <h2>10. Contact Us</h2>
+        <p>
+            If you have questions, concerns, or requests regarding this Privacy Policy or our
+            data practices, please contact us at:
+        </p>
+        <p>
+            <strong>Email:</strong> <!-- REPLACE WITH YOUR EMAIL -->[your-email@example.com]<!-- END REPLACE --><br>
+            <strong>GitHub:</strong> <!-- REPLACE WITH YOUR GITHUB URL -->[your GitHub repository URL]<!-- END REPLACE -->
+        </p>
+        <p>
+            We will respond to privacy-related requests within 30 days.
+        </p>
+    </main>
+</div>
+
+<footer>
+    &copy; 2026 DevFlow Team. All rights reserved.
+</footer>
+
+</body>
+</html>
