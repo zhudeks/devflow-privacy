@@ -117,7 +117,7 @@
 
 <div class="container">
     <div class="meta">
-        <strong>Last updated:</strong> November 16, 2026<br>
+        <strong>Last updated:</strong> November 17, 2026<br>
         <strong>App:</strong> DevFlow (com.devflow.client)<br>
         <strong>Developer:</strong> DevFlow Team
     </div>
@@ -142,9 +142,9 @@
         <h2>2. Information We Collect</h2>
         <p>
             DevFlow operates as a <strong>client application</strong> that connects directly to
-            your Azure DevOps organization. We do not operate our own servers to store your data.
-            All work item, pipeline, repository, and project data is fetched from and sent to
-            Microsoft Azure DevOps servers over HTTPS.
+            your Azure DevOps organization. We do not operate our own servers to proxy or store
+            your Azure DevOps work data. The app also uses Google Play services for billing and
+            app integrity, as described below.
         </p>
 
         <h3>2.1 Information You Provide</h3>
@@ -193,7 +193,7 @@
         <ul>
             <li><strong>Retrieved from</strong> and <strong>sent to</strong> Microsoft Azure DevOps servers directly over HTTPS</li>
             <li><strong>Not stored</strong> on any third-party server operated by DevFlow</li>
-            <li><strong>Temporarily cached</strong> on your device in an encrypted local database (Room) for offline access</li>
+            <li><strong>Cached locally</strong> on your device using Room for app functionality and offline access</li>
         </ul>
 
         <h3>2.3 Google Play Billing Information</h3>
@@ -212,40 +212,41 @@
             <li><strong>App functionality:</strong> Displaying and managing your work items, pipelines, pull requests, sprints, test cases, and repositories</li>
             <li><strong>Offline support:</strong> Caching data locally so you can work without an internet connection; changes sync automatically when you reconnect</li>
             <li><strong>Premium subscription:</strong> Determining whether you have an active DevFlow Premium subscription (via Google Play Billing)</li>
-            <li><strong>App integrity:</strong> Verifying that the app has not been tampered with (via Google Play Integrity API)</li>
+            <li><strong>App integrity:</strong> Requesting an app and device integrity signal from Google Play Integrity</li>
         </ul>
 
         <div class="highlight">
-            <strong>Key point:</strong> DevFlow does <strong>not</strong> sell, share, or transmit
-            your personal data to any third party. Your Azure DevOps credentials and work data
-            never leave your device except when communicating directly with Microsoft Azure DevOps
-            servers.
+            <strong>Key point:</strong> DevFlow does not sell your personal data or operate a
+            backend that proxies or stores your Azure DevOps work data. Credentials and work data
+            are sent directly to Microsoft Azure DevOps when you use those features. Google Play
+            handles subscription billing and receives app integrity requests. Some app data is
+            stored locally on your device.
         </div>
 
         <h2>4. Data Storage and Security</h2>
 
         <h3>4.1 On-Device Storage</h3>
         <p>
-            All sensitive data stored on your device is encrypted using
-            <strong>EncryptedSharedPreferences</strong> (AES-256 encryption) for credentials and
-            <strong>Room Database</strong> for cached work items and settings. This ensures that
-            even if someone gains physical access to your device, your data remains protected.
+            Azure DevOps credentials and related sign-in preferences are stored with AndroidX
+            <strong>EncryptedSharedPreferences</strong>, using a master key managed by Android
+            Keystore. Work items and other cached app data are stored locally using
+            <strong>Room Database</strong>. Do not assume the Room cache is encrypted by this
+            credential-storage mechanism.
         </p>
 
         <h3>4.2 Network Security</h3>
         <p>
-            All communication between DevFlow and Azure DevOps servers uses <strong>HTTPS with
-            TLS encryption</strong>. Additionally, DevFlow implements
-            <strong>certificate pinning</strong> to ensure the app only trusts known Azure DevOps
-            server certificates, preventing man-in-the-middle attacks.
+            Requests to Azure DevOps use <strong>HTTPS with TLS</strong>. Certificate pinning is
+            <strong>not currently enabled</strong>; connections use the platform and OkHttp
+            certificate validation.
         </p>
 
         <h3>4.3 App Integrity Protection</h3>
         <p>
-            DevFlow uses the <strong>Google Play Integrity API</strong> to verify that the app
-            installed on your device is genuine, unmodified, and was distributed through Google
-            Play. We also perform APK signature verification at runtime to detect repackaged
-            or tampered versions of the app.
+            DevFlow requests an integrity token from the <strong>Google Play Integrity API</strong>
+            as an app and device integrity signal. This check is currently non-blocking, and the
+            token is not validated by a DevFlow server. The app also performs APK signature
+            verification at runtime.
         </p>
 
         <h2>5. Data Sharing and Third-Party Services</h2>
@@ -272,13 +273,18 @@
                 <tr>
                     <td><strong>Google Play Integrity API</strong></td>
                     <td>App integrity attestation (anti-tampering)</td>
-                    <td>Device integrity signals (no personal data)</td>
+                    <td>An app and device integrity token request</td>
                 </tr>
             </tbody>
         </table>
         <p>
-            <strong>We do not use</strong> analytics services, crash reporting services,
-            advertising SDKs, or any other third-party SDKs that collect user data.
+            We do not use analytics, crash-reporting, or advertising SDKs. Google Play Billing
+            and Google Play Integrity are used for their respective functions listed above.
+        </p>
+        <p>
+            Links on the DevFlow website to Google Play include campaign parameters so the
+            developer can review aggregate listing visits and acquisitions by website placement
+            in Play Console. The website does not add an analytics SDK or tracking cookie for this.
         </p>
 
         <h2>6. Data Retention</h2>
